@@ -6,6 +6,7 @@ import 'package:uuid/uuid.dart';
 import '../models/note.dart';
 
 class AddNewPage extends StatefulWidget {
+  //only for update
   final bool isUpdate;
   final Note? note;
   const AddNewPage({super.key, required this.isUpdate, this.note});
@@ -78,7 +79,9 @@ class _AddNewPageState extends State<AddNewPage> {
             },
             style: TextStyle(fontSize: 20),
             decoration:
-                InputDecoration(border: InputBorder.none, hintText: "Title"),
+                InputDecoration(
+                  border: InputBorder.none,
+                 hintText: "Title"),
           ),
           Expanded(
             child: TextField(
