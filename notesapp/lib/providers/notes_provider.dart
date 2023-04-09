@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notesapp/services/api_service.dart';
 
 import '../models/note.dart';
 
@@ -14,9 +15,7 @@ class NotesProvider with ChangeNotifier {
 
   void updateNote(Note note) {
     int indexOfNote =
-        notes.indexOf(
-          notes.firstWhere(
-            (element) => element.id == note.id));
+        notes.indexOf(notes.firstWhere((element) => element.id == note.id));
     notes[indexOfNote] = note;
     notifyListeners();
   }
@@ -26,6 +25,13 @@ class NotesProvider with ChangeNotifier {
         notes.indexOf(notes.firstWhere((element) => element.id == note.id));
     notes.removeAt(indexOfNote);
     notifyListeners();
-   
+  }
+ 
+ //todo complete fetch data function
+  void getdata() async{
+    // ApiService apiservice = ApiService();
+    // // List<Note> notes = [];
+    // await apiservice.getDocuments();
+    // addNote(notes);
   }
 }

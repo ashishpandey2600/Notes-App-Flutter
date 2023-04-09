@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notesapp/pages/add_new_note.dart';
 import 'package:notesapp/providers/notes_provider.dart';
+import 'package:notesapp/services/api_service.dart';
 import 'package:provider/provider.dart';
 
 import '../models/note.dart';
@@ -14,6 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ApiService apiService = ApiService();
+  
+
   @override
   Widget build(BuildContext context) {
     NotesProvider notesProvider = Provider.of<NotesProvider>(context);
@@ -46,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                   onLongPress: () {
                     //Delete
                     notesProvider.deleteNote(currentNote);
+                    apiService.deleteDoc(currentNote.id);
                   },
                   child: Container(
                     decoration: BoxDecoration(

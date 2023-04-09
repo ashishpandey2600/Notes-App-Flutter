@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/providers/notes_provider.dart';
+import 'package:notesapp/services/api_service.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
@@ -19,16 +20,19 @@ class _AddNewPageState extends State<AddNewPage> {
   FocusNode noteFocus = FocusNode();
   TextEditingController titleController = TextEditingController();
   TextEditingController contentController = TextEditingController();
+  ApiService apiService = ApiService();
   void addNewNote() {
     Note newNote = Note(
       id: const Uuid().v1(),
-      userid: "Ashish Pandey",
+      userid: "constant",
       title: titleController.text,
       content: contentController.text,
       dateadded: DateTime.now(),
     );
     Provider.of<NotesProvider>(context, listen: false).addNote(newNote);
+
     Navigator.pop(context);
+    apiService.addNote(newNote);
   }
 
   void updateNote() {
@@ -36,6 +40,7 @@ class _AddNewPageState extends State<AddNewPage> {
     widget.note!.content = contentController.text;
     Provider.of<NotesProvider>(context, listen: false).updateNote(widget.note!);
     Navigator.pop(context);
+    apiService.updateDocument(widget.note!);
   }
 
   @override
@@ -79,9 +84,7 @@ class _AddNewPageState extends State<AddNewPage> {
             },
             style: TextStyle(fontSize: 20),
             decoration:
-                InputDecoration(
-                  border: InputBorder.none,
-                 hintText: "Title"),
+                InputDecoration(border: InputBorder.none, hintText: "Title"),
           ),
           Expanded(
             child: TextField(
