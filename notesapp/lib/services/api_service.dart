@@ -63,20 +63,21 @@ class ApiService {
     }
   }
 
-//Todo complete fetch data function
+//Todo complete fetch data(getDocuments) function
   Future<List<Document>> getDocuments() async {
-//     try {
-//       // Get a list of all documents in the collection
-//       final response = await databases.listDocuments(
-//           databaseId: '64318abae6dd855eb2e9',
-//           collectionId: '64318ac2a6ad115cd682');
-// print(response);
-//       // Return the list of documents
-//       return response.documents;
-      
-//     } catch (e) {
-//       print(e.toString());
+    try {
+      // Get a list of all documents in the collection
+      final response = await databases.listDocuments(
+          databaseId: '64318abae6dd855eb2e9',
+          collectionId: '64318ac2a6ad115cd682');
+      print(response);
+      // Return the list of documents
+      return List<Map<String, dynamic>>.from(response.documents)
+          .map((e) => Document.fromMap(e))
+          .toList();
+    } catch (e) {
+      print(e.toString());
       return []; // return an empty list if there's an error
-//     }
+    }
   }
 }

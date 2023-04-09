@@ -43,6 +43,7 @@ class _AddNewPageState extends State<AddNewPage> {
     apiService.updateDocument(widget.note!);
   }
 
+ 
   @override
   void initState() {
     // TODO: implement initState
@@ -52,6 +53,7 @@ class _AddNewPageState extends State<AddNewPage> {
       contentController.text = widget.note!.content;
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,4 @@
+import 'package:appwrite/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notesapp/pages/add_new_note.dart';
@@ -16,7 +17,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ApiService apiService = ApiService();
-  
+
+//todo implement getdocs function
+  // List<Map<String,dynamic>> notes = [];
+  // _getDocs() async {
+  //   notes = apiService.getDocuments();
+  // }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    // _getDocs();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
