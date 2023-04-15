@@ -7,6 +7,7 @@ import 'package:notesapp/services/api_service.dart';
 import 'package:provider/provider.dart';
 
 import '../models/note.dart';
+import 'SearchPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,6 +39,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Notes App"),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SearchPage()));
+              },
+              icon: const Icon(Icons.search))
+        ],
       ),
       body: (notesProvider.notes.length > 0)
           ? SafeArea(
