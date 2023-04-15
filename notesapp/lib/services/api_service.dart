@@ -68,8 +68,8 @@ class ApiService {
     try {
       // Get a list of all documents in the collection
       final response = await databases.listDocuments(
-          databaseId: '64318abae6dd855eb2e9',
-          collectionId: '64318ac2a6ad115cd682');
+          databaseId: '64318abae6dd855eb2e9',//64318abae6dd855eb2e9
+          collectionId: '64318ac2a6ad115cd682');//64318ac2a6ad115cd682
       print(response);
       // Return the list of documents
       return List<Map<String, dynamic>>.from(response.documents)

@@ -62,7 +62,7 @@ class _AddNewPageState extends State<AddNewPage> {
         title: Text("Write notes"),
         actions: [
           IconButton(
-              onPressed: () {
+              onPressed: () {    
                 if (widget.isUpdate) {
                   //update
                   updateNote();

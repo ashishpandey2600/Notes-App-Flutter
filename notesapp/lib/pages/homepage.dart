@@ -20,15 +20,16 @@ class _HomePageState extends State<HomePage> {
   ApiService apiService = ApiService();
 
 //todo implement getdocs function
-  // List<Map<String,dynamic>> notes = [];
-  // _getDocs() async {
-  //   notes = apiService.getDocuments();
-  // }
+  late Future<List<Document>> notes;
+  _getDocs() async {
+    notes = apiService.getDocuments();
+    print(notes);
+  }
 
   @override
   void initState() {
     // TODO: implement initState
-    // _getDocs();
+    _getDocs();
     super.initState();
   }
 
